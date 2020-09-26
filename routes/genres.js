@@ -3,13 +3,6 @@ const {Genre, validate} = require('../models/genres')
 
 const express = require('express');
 const router = express.Router();
-// const mongoose = require('mongoose');
-
-// mongoose
-// .connect('mongodb://localhost/vidly',
-// { useNewUrlParser: true, useUnifiedTopology: true})
-// .then(()=> console.log('Connected to MongoDb...'))
-// .catch(err=>console.error('Could not connect to MongoDB...',err));
 
 router.get('/', async (req,res) => {
 	const genre = await Genre.find().sort('name').select('name')
@@ -24,8 +17,8 @@ router.get('/:id', async (req,res) => {
 router.post('/', async (req,res) => {
 	const {error} = validate(req.body);
 	if (error) return bad_req(res,error.details[0].message);
-	let genre = new Genre({ name : req.body.name });
-	genre = await genre.save()
+	const genre = new Genre({ name : req.body.name });
+	await genre.save()
 	res.send(genre);
 })
 

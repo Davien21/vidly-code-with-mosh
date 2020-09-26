@@ -24,16 +24,16 @@ router.get('/:id', async (req,res) => {
 router.post('/', async (req,res) => {
   const {error} = validate(req.body);
   if (error) return bad_req(res,error.details[0].message);
+
   const customer = await Customer.findById(req.body.customerId);
   if (!customer) return invalid (res, 'Customer'); 
   
   const movie = await Movie.findById(req.body.movieId);
-  console.log(movie);
   if (!movie) return invalid (res, 'Movie'); 
 
   if (!movie.numberInStock === 0) return bad_req(res,'Movie not in stock');
 
-	let rental = new Rental({ 
+	const rental = new Rental({ 
     customer: {
       _id: customer._id,
       name: customer.name,
