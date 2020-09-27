@@ -1,5 +1,5 @@
-const {Customer, validate} = require('../models/customers')
 const {bad_req, invalid} = require('../util');
+const {Customer, validate} = require('../models/customers')
 const express = require('express');
 const router = express.Router();
 
