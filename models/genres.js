@@ -11,7 +11,7 @@ model.genreSchema = new mongoose.Schema({
 })
 model.Genre = mongoose.model('Genre', model.genreSchema)
 
-model.validateGenre = (genre) => {
+model.validate = (genre) => {
 	const schema = {
 		name: Joi.string().min(3).required()
 	};

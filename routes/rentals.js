@@ -1,3 +1,5 @@
+const auth = require('../middleware/auth'); 
+
 const {bad_req, invalid} = require('../util');
 const {Rental, validate} = require('../models/rentals')
 const {Movie} = require('../models/movies')
@@ -21,7 +23,7 @@ router.get('/:id', async (req,res) => {
 	res.send(rental);
 })
 
-router.post('/', async (req,res) => {
+router.post('/', auth, async (req,res) => {
   const {error} = validate(req.body);
   if (error) return bad_req(res,error.details[0].message);
 
@@ -58,7 +60,7 @@ router.post('/', async (req,res) => {
   }
 })
 
-router.put('/:id', async (req,res) => {
+router.put('/:id', auth, async (req,res) => {
 	const {error} = validate(req.body);
 	if (error) return bad_req(res,error.details[0].message);
 	const rental = await Rental.findByIdAndUpdate(req.params.id, { 
@@ -74,7 +76,7 @@ router.put('/:id', async (req,res) => {
 	res.send(rental);
 })
 
-router.delete('/:id', async (req,res) => {
+router.delete('/:id', auth, async (req,res) => {
 	const {error} = validate(req.body);
 	if (error) return bad_req(res,error.details[0].message);
 	const rental = await Rental.findByIdAndRemove(req.params.id,

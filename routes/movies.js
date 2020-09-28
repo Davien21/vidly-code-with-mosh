@@ -1,3 +1,5 @@
+const auth = require('../middleware/auth'); 
+
 const {bad_req, invalid} = require('../util');
 const {Movie, validate} = require('../models/movies')
 const {Genre} = require('../models/genres')
@@ -15,7 +17,7 @@ router.get('/:id', async (req,res) => {
 	res.send(movie);
 })
 
-router.post('/', async (req,res) => {
+router.post('/', auth, async (req,res) => {
   const {error} = validate(req.body);
   if (error) return bad_req(res,error.details[0].message);
   const genre = await Genre.findById(req.body.genreId);
@@ -34,7 +36,7 @@ router.post('/', async (req,res) => {
 	res.send(movie);
 })
 
-router.put('/:id', async (req,res) => {
+router.put('/:id', auth, async (req,res) => {
 	const {error} = validate(req.body);
 	if (error) return bad_req(res,error.details[0].message);
 	const movie = await Movie.findByIdAndUpdate(req.params.id, { 
@@ -50,7 +52,7 @@ router.put('/:id', async (req,res) => {
 	res.send(movie);
 })
 
-router.delete('/:id', async (req,res) => {
+router.delete('/:id', auth, async (req,res) => {
 	const {error} = validate(req.body);
 	if (error) return bad_req(res,error.details[0].message);
 	const movie = await Movie.findByIdAndRemove(req.params.id,

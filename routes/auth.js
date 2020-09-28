@@ -1,5 +1,3 @@
-const config = require('config');
-const jwt = require('jsonwebtoken'); 
 const Joi = require('joi');
 const passwordComplexity = require('joi-password-complexity');
 
@@ -31,30 +29,8 @@ router.post('/', async (req,res) => {
   const validPassword =  await bcrypt.compare(req.body.password,user.password);
   if(!validPassword) return bad_req(res,'Invalid email or password');
 
-  const token =  jwt.sign({_id: user._id}, config.get('jwtPrivateKey'));
-
+	const token = user.generateAuthToken();
   res.send(token);
-})
-
-router.put('/:id', async (req,res) => {
-	const {error} = validate(req.body);
-	if (error) return bad_req(res,error.details[0].message);
-  const user = await User.findByIdAndUpdate(req.params.id, 
-    _.pick(req.body,['name','email','password']), 
-    {	useFindAndModify : false, new : true }
-	)
-	if (!user) return invalid (res, 'User'); 
-	res.send(user);
-})
-
-router.delete('/:id', async (req,res) => {
-	const {error} = validate(req.body);
-	if (error) return bad_req(res,error.details[0].message);
-	const user = await User.findByIdAndRemove(req.params.id,
-		 {	useFindAndModify : false, new : true }
-	)
-	if (!user) return invalid (res, 'User'); 
-	res.send(user);
 })
 
 validate = (req) => {

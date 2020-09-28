@@ -1,3 +1,5 @@
+const auth = require('../middleware/auth'); 
+
 const {bad_req, invalid} = require('../util');
 const {Genre, validate} = require('../models/genres')
 
@@ -14,15 +16,16 @@ router.get('/:id', async (req,res) => {
 	res.send(genre);
 })
 
-router.post('/', async (req,res) => {
+router.post('/', auth, async (req,res) => {
 	const {error} = validate(req.body);
 	if (error) return bad_req(res,error.details[0].message);
+
 	const genre = new Genre({ name : req.body.name });
 	await genre.save()
 	res.send(genre);
 })
 
-router.put('/:id', async (req,res) => {
+router.put('/:id', auth, async (req,res) => {
 	const {error} = validate(req.body);
 	if (error) return bad_req(res,error.details[0].message);
 	const genre = await Genre.findByIdAndUpdate(req.params.id, { 
@@ -33,7 +36,7 @@ router.put('/:id', async (req,res) => {
 	res.send(genre);
 })
 
-router.delete('/:id', async (req,res) => {
+router.delete('/:id', auth, async (req,res) => {
 	const {error} = validate(req.body);
 	if (error) return bad_req(res,error.details[0].message);
 	const genre = await Genre.findByIdAndRemove(req.params.id,

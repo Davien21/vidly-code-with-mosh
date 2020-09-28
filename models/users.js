@@ -1,6 +1,8 @@
 const Joi = require('joi');
 const passwordComplexity = require('joi-password-complexity');
 const mongoose = require('mongoose');
+const config = require('config');
+const jwt = require('jsonwebtoken'); 
 
 let model = {};
 model.userSchema = new mongoose.Schema({
@@ -29,8 +31,10 @@ model.userSchema = new mongoose.Schema({
   
 });
 
+model.userSchema.methods.generateAuthToken  = function() {
+  return token =  jwt.sign({_id: this._id}, config.get('jwtPrivateKey'));
+}
 model.User = mongoose.model('User', model.userSchema);
-
 //validate with regex:
 /* model.validate = (user) => {
   console.log(user);

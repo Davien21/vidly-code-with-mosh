@@ -20,5 +20,6 @@
     "jsonwebtoken": "^8.1.1",
     "lodash": "^4.17.20",
     "mongoose": "^5.10.5"
-  }
+  },
+  "devDependencies": {}
 }

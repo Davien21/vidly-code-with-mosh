@@ -9,11 +9,9 @@ const movies = require('./routes/movies');
 const rentals = require('./routes/rentals');
 const users = require('./routes/users');
 const auth = require('./routes/auth');
-console.log(config.get('jwtPrivateKey'))
 if (!config.get('jwtPrivateKey')) {
-	console.log('adsa')
 	console.log('FATAL ERROR: jwtPrivateKey is not defined.');
-	// process.exit(1);
+	process.exit(1);
 }
 
 mongoose
