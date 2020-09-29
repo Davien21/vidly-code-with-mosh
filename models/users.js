@@ -27,12 +27,13 @@ model.userSchema = new mongoose.Schema({
     minlength: 5,
     maxlength: 1024,
     trim: true,
-  }
+  },
+  isAdmin : Boolean,
   
 });
 
 model.userSchema.methods.generateAuthToken  = function() {
-  return token =  jwt.sign({_id: this._id}, config.get('jwtPrivateKey'));
+  return token =  jwt.sign({_id: this._id, isAdmin: this.isAdmin}, config.get('jwtPrivateKey'));
 }
 model.User = mongoose.model('User', model.userSchema);
 //validate with regex:

@@ -1,4 +1,5 @@
 const auth = require('../middleware/auth'); 
+const admin = require('../middleware/admin'); 
 
 const {bad_req, invalid} = require('../util');
 const {Genre, validate} = require('../models/genres')
@@ -7,8 +8,9 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/', async (req,res) => {
-	const genre = await Genre.find().sort('name').select('name')
-	res.send(genre);
+	throw new Error('Could not get the genres.')
+		const genre = await Genre.find().sort('name').select('name')
+		res.send(genre);
 })
 router.get('/:id', async (req,res) => {
 	const genre = await Genre.find({ _id : req.params.id }).select('name')
@@ -36,7 +38,7 @@ router.put('/:id', auth, async (req,res) => {
 	res.send(genre);
 })
 
-router.delete('/:id', auth, async (req,res) => {
+router.delete('/:id', [auth, admin], async (req,res) => {
 	const {error} = validate(req.body);
 	if (error) return bad_req(res,error.details[0].message);
 	const genre = await Genre.findByIdAndRemove(req.params.id,

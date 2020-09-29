@@ -13,7 +13,6 @@ router.get('/', async (req,res) => {
 	res.send(user);
 })
 router.get('/me', auth, async (req,res) => {
-	console.log(req.user);
 	const user = await User.findById(req.user._id).select('-password')
 	if (!user) return invalid (res, 'User'); 
 	res.send(user);
@@ -32,7 +31,8 @@ router.post('/', auth, async (req,res) => {
 
 	await user.save();
   const token =  user.generateAuthToken();
-	res.header('x-auth-token',token).send(_.pick(user,['_id','name','email']));
+	res.header('x-auth-token',token).send(_.pick(user,['_id','name','email',
+'isAdmin']));
 })
 
 router.put('/:id', auth, async (req,res) => {
