@@ -1,7 +1,7 @@
 const auth = require('../middleware/auth'); 
 
 const {bad_req, invalid} = require('../util');
-const {Customer, validate} = require('../models/customers')
+const {Customer, validate} = require('../models/customer')
 const express = require('express');
 const router = express.Router();
 

@@ -4,7 +4,7 @@ const passwordComplexity = require('joi-password-complexity');
 const bcrypt = require('bcrypt');
 const _ = require('lodash');
 const {bad_req, invalid} = require('../util');
-const {User} = require('../models/users')
+const {User} = require('../models/user')
 
 const express = require('express');
 const router = express.Router();

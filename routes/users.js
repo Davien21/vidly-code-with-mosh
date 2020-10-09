@@ -3,7 +3,7 @@ const auth = require('../middleware/auth'); //we are using this for authorizatio
 const bcrypt = require('bcrypt');
 const _ = require('lodash');
 const {bad_req, invalid} = require('../util');
-const {User, validate} = require('../models/users')
+const {User, validate} = require('../models/user')
 
 const express = require('express');
 const router = express.Router();

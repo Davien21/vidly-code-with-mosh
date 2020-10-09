@@ -1,8 +1,8 @@
 const auth = require('../middleware/auth'); 
 
 const {bad_req, invalid} = require('../util');
-const {Movie, validate} = require('../models/movies')
-const {Genre} = require('../models/genres')
+const {Movie, validate} = require('../models/movie')
+const {Genre} = require('../models/genre')
 
 const express = require('express');
 const router = express.Router();
