@@ -13,7 +13,9 @@ router.get('/', async (req,res) => {
 })
 router.get('/:id', async (req,res) => {
 	const genre = await Genre.find({ _id : req.params.id }).select('name')
+
 	if (!genre) return invalid (res, 'Genre'); 
+	
 	res.send(genre);
 })
 

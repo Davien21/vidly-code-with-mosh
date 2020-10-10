@@ -54,3 +54,55 @@
 {"message":"Could not get the genres.","stack":"Error: Could not get the genres.\n    at router.get (C:\\Users\\CHIDIEBERE-PC\\Desktop\\Online learning\\Node\\vidly\\routes\\genres.js:11:8)\n    at C:\\Users\\CHIDIEBERE-PC\\Desktop\\Online learning\\Node\\vidly\\node_modules\\express-async-errors\\index.js:17:17\n    at Layer.handle [as handle_request] (C:\\Users\\CHIDIEBERE-PC\\Desktop\\Online learning\\Node\\vidly\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\CHIDIEBERE-PC\\Desktop\\Online learning\\Node\\vidly\\node_modules\\express\\lib\\router\\route.js:137:13)\n    at Route.dispatch (C:\\Users\\CHIDIEBERE-PC\\Desktop\\Online learning\\Node\\vidly\\node_modules\\express\\lib\\router\\route.js:112:3)\n    at C:\\Users\\CHIDIEBERE-PC\\Desktop\\Online learning\\Node\\vidly\\node_modules\\express-async-errors\\index.js:17:17\n    at Layer.handle [as handle_request] (C:\\Users\\CHIDIEBERE-PC\\Desktop\\Online learning\\Node\\vidly\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Users\\CHIDIEBERE-PC\\Desktop\\Online learning\\Node\\vidly\\node_modules\\express\\lib\\router\\index.js:281:22\n    at Function.process_params (C:\\Users\\CHIDIEBERE-PC\\Desktop\\Online learning\\Node\\vidly\\node_modules\\express\\lib\\router\\index.js:335:12)\n    at next (C:\\Users\\CHIDIEBERE-PC\\Desktop\\Online learning\\Node\\vidly\\node_modules\\express\\lib\\router\\index.js:275:10)\n    at Function.handle (C:\\Users\\CHIDIEBERE-PC\\Desktop\\Online learning\\Node\\vidly\\node_modules\\express\\lib\\router\\index.js:174:3)\n    at router (C:\\Users\\CHIDIEBERE-PC\\Desktop\\Online learning\\Node\\vidly\\node_modules\\express\\lib\\router\\index.js:47:12)\n    at C:\\Users\\CHIDIEBERE-PC\\Desktop\\Online learning\\Node\\vidly\\node_modules\\express-async-errors\\index.js:17:17\n    at Layer.handle [as handle_request] (C:\\Users\\CHIDIEBERE-PC\\Desktop\\Online learning\\Node\\vidly\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (C:\\Users\\CHIDIEBERE-PC\\Desktop\\Online learning\\Node\\vidly\\node_modules\\express\\lib\\router\\index.js:317:13)\n    at C:\\Users\\CHIDIEBERE-PC\\Desktop\\Online learning\\Node\\vidly\\node_modules\\express\\lib\\router\\index.js:284:7\n    at Function.process_params (C:\\Users\\CHIDIEBERE-PC\\Desktop\\Online learning\\Node\\vidly\\node_modules\\express\\lib\\router\\index.js:335:12)\n    at next (C:\\Users\\CHIDIEBERE-PC\\Desktop\\Online learning\\Node\\vidly\\node_modules\\express\\lib\\router\\index.js:275:10)\n    at jsonParser (C:\\Users\\CHIDIEBERE-PC\\Desktop\\Online learning\\Node\\vidly\\node_modules\\body-parser\\lib\\types\\json.js:110:7)\n    at C:\\Users\\CHIDIEBERE-PC\\Desktop\\Online learning\\Node\\vidly\\node_modules\\express-async-errors\\index.js:17:17\n    at Layer.handle [as handle_request] (C:\\Users\\CHIDIEBERE-PC\\Desktop\\Online learning\\Node\\vidly\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (C:\\Users\\CHIDIEBERE-PC\\Desktop\\Online learning\\Node\\vidly\\node_modules\\express\\lib\\router\\index.js:317:13)","level":"error","timestamp":"2020-10-08T23:08:00.909Z"}
 {"level":"info","message":"Server running at port 3000","timestamp":"2020-10-08T23:09:51.376Z"}
 {"level":"info","message":"Connected to mongodb://localhost/vidly_tests ...","timestamp":"2020-10-08T23:09:51.411Z"}
+{"level":"info","message":"Server running at port 3000","timestamp":"2020-10-10T23:30:13.827Z"}
+{"level":"info","message":"Connected to mongodb://localhost/vidly ...","timestamp":"2020-10-10T23:30:13.855Z"}
+{"level":"info","message":"Server running at port 3000","timestamp":"2020-10-10T23:30:42.116Z"}
+{"level":"info","message":"Connected to mongodb://localhost/vidly_tests ...","timestamp":"2020-10-10T23:30:42.140Z"}
+{"level":"info","message":"Connected to mongodb://localhost/vidly_tests ...","timestamp":"2020-10-10T23:37:51.482Z"}
+{"level":"info","message":"Server running at port 3000","timestamp":"2020-10-10T23:37:51.512Z"}
+{"level":"info","message":"Server running at port 3000","timestamp":"2020-10-10T23:38:40.576Z"}
+{"level":"info","message":"Connected to mongodb://localhost/vidly_tests ...","timestamp":"2020-10-10T23:38:40.608Z"}
+{"level":"info","message":"Server running at port 3000","timestamp":"2020-10-10T23:39:12.987Z"}
+{"level":"info","message":"Connected to mongodb://localhost/vidly_tests ...","timestamp":"2020-10-10T23:39:12.995Z"}
+{"level":"info","message":"Server running at port 3000","timestamp":"2020-10-10T23:40:48.831Z"}
+{"level":"info","message":"Connected to mongodb://localhost/vidly_tests ...","timestamp":"2020-10-10T23:40:48.863Z"}
+{"level":"info","message":"Server running at port 3000","timestamp":"2020-10-10T23:41:44.531Z"}
+{"level":"info","message":"Connected to mongodb://localhost/vidly_tests ...","timestamp":"2020-10-10T23:41:44.563Z"}
+{"level":"info","message":"Server running at port 3000","timestamp":"2020-10-10T23:43:11.478Z"}
+{"level":"info","message":"Connected to mongodb://localhost/vidly_tests ...","timestamp":"2020-10-10T23:43:11.491Z"}
+{"level":"info","message":"Server running at port 3000","timestamp":"2020-10-10T23:43:13.906Z"}
+{"level":"info","message":"Connected to mongodb://localhost/vidly_tests ...","timestamp":"2020-10-10T23:43:13.917Z"}
+{"level":"info","message":"Server running at port 3000","timestamp":"2020-10-10T23:43:16.031Z"}
+{"level":"info","message":"Connected to mongodb://localhost/vidly_tests ...","timestamp":"2020-10-10T23:43:16.041Z"}
+{"level":"info","message":"Server running at port 3000","timestamp":"2020-10-10T23:43:24.843Z"}
+{"level":"info","message":"Connected to mongodb://localhost/vidly_tests ...","timestamp":"2020-10-10T23:43:24.852Z"}
+{"level":"info","message":"Server running at port 3000","timestamp":"2020-10-10T23:43:35.150Z"}
+{"level":"info","message":"Connected to mongodb://localhost/vidly_tests ...","timestamp":"2020-10-10T23:43:35.160Z"}
+{"level":"info","message":"Server running at port 3000","timestamp":"2020-10-10T23:44:06.698Z"}
+{"level":"info","message":"Connected to mongodb://localhost/vidly_tests ...","timestamp":"2020-10-10T23:44:06.718Z"}
+{"level":"info","message":"Server running at port 3000","timestamp":"2020-10-10T23:44:08.894Z"}
+{"level":"info","message":"Connected to mongodb://localhost/vidly_tests ...","timestamp":"2020-10-10T23:44:08.915Z"}
+{"level":"info","message":"Server running at port 3000","timestamp":"2020-10-10T23:44:26.769Z"}
+{"level":"info","message":"Connected to mongodb://localhost/vidly_tests ...","timestamp":"2020-10-10T23:44:26.786Z"}
+{"level":"info","message":"Server running at port 3000","timestamp":"2020-10-10T23:44:45.210Z"}
+{"level":"info","message":"Connected to mongodb://localhost/vidly_tests ...","timestamp":"2020-10-10T23:44:45.218Z"}
+{"level":"info","message":"Server running at port 3000","timestamp":"2020-10-10T23:47:10.440Z"}
+{"level":"info","message":"Connected to mongodb://localhost/vidly_tests ...","timestamp":"2020-10-10T23:47:10.451Z"}
+{"level":"info","message":"Server running at port 3000","timestamp":"2020-10-10T23:47:12.480Z"}
+{"level":"info","message":"Connected to mongodb://localhost/vidly_tests ...","timestamp":"2020-10-10T23:47:12.493Z"}
+{"level":"info","message":"Server running at port 3000","timestamp":"2020-10-10T23:47:14.569Z"}
+{"level":"info","message":"Connected to mongodb://localhost/vidly_tests ...","timestamp":"2020-10-10T23:47:14.579Z"}
+{"level":"info","message":"Server running at port 3000","timestamp":"2020-10-10T23:47:26.561Z"}
+{"level":"info","message":"Connected to mongodb://localhost/vidly_tests ...","timestamp":"2020-10-10T23:47:26.578Z"}
+{"level":"info","message":"Server running at port 3000","timestamp":"2020-10-10T23:47:28.611Z"}
+{"level":"info","message":"Connected to mongodb://localhost/vidly_tests ...","timestamp":"2020-10-10T23:47:28.622Z"}
+{"level":"info","message":"Server running at port 3000","timestamp":"2020-10-10T23:47:35.791Z"}
+{"level":"info","message":"Connected to mongodb://localhost/vidly_tests ...","timestamp":"2020-10-10T23:47:35.800Z"}
+{"level":"info","message":"Server running at port 3000","timestamp":"2020-10-10T23:48:15.586Z"}
+{"level":"info","message":"Connected to mongodb://localhost/vidly_tests ...","timestamp":"2020-10-10T23:48:15.598Z"}
+{"level":"info","message":"Server running at port 3000","timestamp":"2020-10-10T23:48:17.878Z"}
+{"level":"info","message":"Connected to mongodb://localhost/vidly_tests ...","timestamp":"2020-10-10T23:48:17.887Z"}
+{"level":"info","message":"Server running at port 3000","timestamp":"2020-10-10T23:48:45.293Z"}
+{"level":"info","message":"Connected to mongodb://localhost/vidly_tests ...","timestamp":"2020-10-10T23:48:45.300Z"}
+{"level":"info","message":"Server running at port 3000","timestamp":"2020-10-10T23:48:48.356Z"}
+{"level":"info","message":"Connected to mongodb://localhost/vidly_tests ...","timestamp":"2020-10-10T23:48:48.367Z"}
