@@ -5,6 +5,7 @@ const {bad_req, invalid} = require('../util');
 const {Genre, validate} = require('../models/genre')
 
 const express = require('express');
+const mongoose = require('mongoose');
 const router = express.Router();
 
 router.get('/', async (req,res) => {
@@ -12,10 +13,13 @@ router.get('/', async (req,res) => {
 		res.send(genre);
 })
 router.get('/:id', async (req,res) => {
-	const genre = await Genre.find({ _id : req.params.id }).select('name')
+	if (!mongoose.Types.ObjectId.isValid(req.params.id))
+		return invalid (res, 'ID.');
+
+	const genre = await Genre.findById(req.params.id).select('name')
 
 	if (!genre) return invalid (res, 'Genre'); 
-	
+
 	res.send(genre);
 })
 
