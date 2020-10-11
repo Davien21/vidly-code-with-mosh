@@ -1,3 +1,4 @@
+const validateObjectId = require('../middleware/validateObjectId')
 const auth = require('../middleware/auth'); 
 const admin = require('../middleware/admin'); 
 
@@ -5,17 +6,13 @@ const {bad_req, invalid} = require('../util');
 const {Genre, validate} = require('../models/genre')
 
 const express = require('express');
-const mongoose = require('mongoose');
 const router = express.Router();
 
 router.get('/', async (req,res) => {
 		const genre = await Genre.find().sort('name').select('name')
 		res.send(genre);
 })
-router.get('/:id', async (req,res) => {
-	if (!mongoose.Types.ObjectId.isValid(req.params.id))
-		return invalid (res, 'ID.');
-
+router.get('/:id', validateObjectId, async (req,res) => {
 	const genre = await Genre.findById(req.params.id).select('name')
 
 	if (!genre) return invalid (res, 'Genre'); 
@@ -27,8 +24,9 @@ router.post('/', auth, async (req,res) => {
 	const {error} = validate(req.body);
 	if (error) return bad_req(res,error.details[0].message);
 
-	const genre = new Genre({ name : req.body.name });
-	await genre.save()
+	let  genre = new Genre({ name : req.body.name });
+	genre = await genre.save()
+
 	res.send(genre);
 })
 
