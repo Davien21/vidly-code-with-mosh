@@ -3,3 +3,4 @@ node_modules/
 9.6- Project- Build the Movies API
 9.6- Project- Build the Movies API/
 .env
+coverage/
