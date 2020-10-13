@@ -30,7 +30,7 @@ router.post('/', auth, async (req,res) => {
 	res.send(genre);
 })
 
-router.put('/:id', auth, async (req,res) => {
+router.put('/:id',[ validateObjectId, auth ], async (req,res) => {
 	const {error} = validate(req.body);
 	if (error) return bad_req(res,error.details[0].message);
 	const genre = await Genre.findByIdAndUpdate(req.params.id, { 
@@ -41,7 +41,7 @@ router.put('/:id', auth, async (req,res) => {
 	res.send(genre);
 })
 
-router.delete('/:id', [auth, admin], async (req,res) => {
+router.delete('/:id', [validateObjectId, auth, admin], async (req,res) => {
 	const {error} = validate(req.body);
 	if (error) return bad_req(res,error.details[0].message);
 	const genre = await Genre.findByIdAndRemove(req.params.id,
