@@ -17,8 +17,5 @@ model.validate = (genre) => {
 	};
 	return result = Joi.validate(genre,schema);
 }
-/* model.validGenre  = async (genreId) => {
-	let genre = await Genre.findById(genreId);
-	return genre;
-} */
+
 module.exports = model;
