@@ -125,5 +125,6 @@ ons.log
 9.6- Project- Build the Movies API/
 .env
 coverage/
+controllers/
 app-with-all-errs.js
-app-with-all-errs-2.js
+app-with-errs-2.js
