@@ -1,4 +1,4 @@
-gitconst auth = require('../middleware/auth');
+const auth = require('../middleware/auth');
 const express = require('express');
 const router = express.Router();
 const {bad_req, invalid} = require('../util');
