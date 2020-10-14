@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "jest --env=node --watchAll --verbose --coverage"
+    "test": "jest --env=node --watchAll --verbose --coverage --runInBand"
   },
   "keywords": [],
   "author": "",
