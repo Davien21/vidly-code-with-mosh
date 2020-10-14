@@ -42,8 +42,6 @@ router.put('/:id',[ validateObjectId, auth ], async (req,res) => {
 })
 
 router.delete('/:id', [validateObjectId, auth, admin], async (req,res) => {
-	const {error} = validate(req.body);
-	if (error) return bad_req(res,error.details[0].message);
 	const genre = await Genre.findByIdAndRemove(req.params.id,
 		 {	useFindAndModify : false, new : true }
 	)
