@@ -1,5 +1,5 @@
-const {User} = require('../../models/user');
-const {Genre} = require('../../models/genre');
+const { User } = require('../../models/user');
+const { Genre } = require('../../models/genre');
 const request = require('supertest');
 
 describe('auth middleware', () => {
