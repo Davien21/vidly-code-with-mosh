@@ -4,9 +4,9 @@ const express = require('express');
 const router = express.Router();
 const {bad_req, invalid} = require('../util');
 const { Rental } = require('../models/rental')
+const { Movie } = require('../models/movie')
 
 router.post('/', auth, async (req,res) => {
-  // const {error} = validate(req.body);
 	// if (error) return bad_req(res,error.details[0].message);
   if (!req.body.customerId) return res.status(400).send('customerId not provided')
   if (!req.body.movieId) return res.status(400).send('customerId not provided')
@@ -23,8 +23,12 @@ router.post('/', auth, async (req,res) => {
   rental.dateReturned = new Date();
   const rentalDays = moment().diff(rental.dateOut, 'days');
   rental.rentalFee = rentalDays * rental.movie.dailyRentalRate;
-  
+
   await rental.save();
+
+  await Movie.update({ _id: rental.movie._id }, {
+    $inc: { numberInStock: 1 }
+  })
 
   return res.status(200).send('Return was processed');
 })
