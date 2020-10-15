@@ -7,9 +7,9 @@ const { Rental } = require('../models/rental')
 const { Movie } = require('../models/movie')
 
 router.post('/', auth, async (req,res) => {
-  if (!req.body.customerId) return res.status(400).send('customerId not provided')
-  if (!req.body.movieId) return res.status(400).send('customerId not provided')
-  
+  const {error} = validate(req.body);
+	if (error) return bad_req(res,error.details[0].message);
+
   const rental = await Rental.findOne({
     'customer._id': req.body.customerId, 
     'movie._id': req.body.movieId, 
@@ -32,5 +32,12 @@ router.post('/', auth, async (req,res) => {
   return res.status(200).send(rental);
 })
 
+function validate (genre) {
+	const schema = {
+		customerId: Joi.objectId().required(),
+		movieId: Joi.objectId().required(),
+	};
+	return result = Joi.validate(genre,schema);
+}
 
 module.exports = router;
