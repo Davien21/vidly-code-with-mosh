@@ -1,8 +1,9 @@
-const moment = require('moment')
+const Joi = require('joi');
+const moment = require('moment');
 const auth = require('../middleware/auth');
 const express = require('express');
 const router = express.Router();
-const {bad_req, invalid} = require('../util');
+const { bad_req, invalid } = require('../util');
 const { Rental } = require('../models/rental')
 const { Movie } = require('../models/movie')
 
@@ -32,12 +33,12 @@ router.post('/', auth, async (req,res) => {
   return res.status(200).send(rental);
 })
 
-function validate (genre) {
+function validate (returns) {
 	const schema = {
 		customerId: Joi.objectId().required(),
 		movieId: Joi.objectId().required(),
 	};
-	return result = Joi.validate(genre,schema);
+	return result = Joi.validate(returns,schema);
 }
 
 module.exports = router;
