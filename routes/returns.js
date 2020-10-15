@@ -4,7 +4,7 @@ const router = express.Router();
 const {bad_req, invalid} = require('../util');
 const { Rental } = require('../models/rental')
 
-router.post('/', async (req,res) => {
+router.post('/', auth, async (req,res) => {
   // const {error} = validate(req.body);
 	// if (error) return bad_req(res,error.details[0].message);
   if (!req.body.customerId) return res.status(400).send('customerId not provided')
@@ -13,14 +13,16 @@ router.post('/', async (req,res) => {
   const rental = await Rental.findOne({
     'customer._id': req.body.customerId, 
     'movie._id': req.body.movieId, 
-  })
+  });
 
-  if (!rental) return res.status(404).send('Rental not found')
+  if (!rental) return res.status(404).send('Rental not found');
+
   if (rental.dateReturned) return res.status(400).send('Return already processed')
+  
+  rental.dateReturned = new Date();
+  await rental.save();
 
-  // if (req.body.customerId && req.body.movieId) 
-
-  res.status(401).send('Unauthorized')
+  return res.status(200).send('Return was processed');
 })
 
 
