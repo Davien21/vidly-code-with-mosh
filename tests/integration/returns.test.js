@@ -80,6 +80,21 @@ describe('/api/returns', () => {
       
       expect(res.status).toBe(400);
     })
+    it('should return 200 if we have a valid request', async () => {
+      const res = await exec();
+      
+      expect(res.status).toBe(200);
+    })
+
+    it('should set return date if status is 200', async () => {
+      await exec();
+
+      const rentalInDB = await Rental.findById(rental._id);
+      const timeDiff = new Date().getTime() - rentalInDB.dateReturned.getTime();
+
+      expect(timeDiff).toBeLessThan(10 * 1000);
+      expect(rentalInDB.dateReturned).toBeDefined();
+    })
   })
 
 })
