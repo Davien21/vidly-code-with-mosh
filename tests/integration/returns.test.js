@@ -1,3 +1,4 @@
+const moment = require('moment');
 const request = require('supertest')
 const { Rental } = require('../../models/rental');
 const { User } = require('../../models/user');
@@ -86,7 +87,7 @@ describe('/api/returns', () => {
       expect(res.status).toBe(200);
     })
 
-    it('should set return date if status is 200', async () => {
+    it('should set return date if input is valid', async () => {
       await exec();
 
       const rentalInDB = await Rental.findById(rental._id);
@@ -94,6 +95,15 @@ describe('/api/returns', () => {
 
       expect(timeDiff).toBeLessThan(10 * 1000);
       expect(rentalInDB.dateReturned).toBeDefined();
+    })
+    it('should set rental fee if input is valid', async () => {
+      rental.dateOut = moment().add(-7, 'days').toDate();
+      await rental.save();
+
+      await exec();
+
+      const rentalInDB = await Rental.findById(rental._id);
+      expect(rentalInDB.rentalFee).toBe(14);
     })
   })
 
@@ -108,6 +118,6 @@ describe('/api/returns', () => {
 // Return 400 if rental already processed 
 // Return 200 if valid request 
 // Set the return date 
-// Calculate the rental fee 
+// Calculate the rental fee (numberOfDays * movie.dailyRentalRate)
 // Increase the stock 
 // Return the rental 
