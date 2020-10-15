@@ -7,7 +7,6 @@ const { Rental } = require('../models/rental')
 const { Movie } = require('../models/movie')
 
 router.post('/', auth, async (req,res) => {
-	// if (error) return bad_req(res,error.details[0].message);
   if (!req.body.customerId) return res.status(400).send('customerId not provided')
   if (!req.body.movieId) return res.status(400).send('customerId not provided')
   
@@ -30,7 +29,7 @@ router.post('/', auth, async (req,res) => {
     $inc: { numberInStock: 1 }
   })
 
-  return res.status(200).send('Return was processed');
+  return res.status(200).send(rental);
 })
 
 
