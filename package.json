@@ -4,17 +4,23 @@
   "description": "",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "test": "jest --env=node --watchAll --verbose --coverage --runInBand"
+  },
+  "engines": {
+    "node": "10.16.0"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^3.0.5",
+    "compression": "^1.7.4",
     "config": "^3.3.1",
     "express": "^4.17.1",
     "express-async-errors": "^2.1.0",
     "fawn": "^2.1.5",
+    "helmet": "^4.1.1",
     "joi": "^13.1.0",
     "joi-objectid": "^2.0.0",
     "joi-password-complexity": "^2.0.1",
