@@ -18,7 +18,7 @@ router.get('/me', auth, async (req,res) => {
 	res.send(user);
 })
 
-router.post('/', auth, async (req,res) => {
+router.post('/', async (req,res) => {
 	const {error} = validate(req.body);
   if (error) return bad_req(res,error.details[0].message);
 
